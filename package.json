@@ -1,0 +1,31 @@
+{
+  "name": "habiticabot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-bot": "npx tsx main.ts" ,
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lemine-Mahjoub/HabiticaBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lemine-Mahjoub/HabiticaBot/issues"
+  },
+  "homepage": "https://github.com/Lemine-Mahjoub/HabiticaBot#readme",
+  "dependencies": {
+    "@discordjs/rest": "^2.4.3",
+    "@nestjs/typeorm": "^11.0.0",
+    "discord.js": "^14.18.0",
+    "dotenv": "^16.4.7",
+    "nest": "^0.1.6",
+    "pg": "^8.14.0",
+    "typeorm": "^0.3.21",
+    "typescript": "^5.8.2"
+  }
+}
