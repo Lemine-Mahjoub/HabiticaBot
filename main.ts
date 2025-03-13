@@ -1,30 +1,22 @@
-import { Client, GatewayIntentBits } from 'discord.js';
-import 'dotenv/config';
+import "dotenv/config";
+import { CheckEnvToken, CreateClient } from "./lib";
 
-// Vérifie si le token est bien défini
-const token = process.env.DISCORD_TOKEN;
-if (!token) {
-    console.error("🚨 Erreur : Aucun token trouvé dans le fichier .env !");
-    process.exit(1);
-}
+const TOKEN = process.env.DISCORD_TOKEN;
 
-// Création du client Discord
-const client = new Client({
-    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
+CheckEnvToken(TOKEN);
+
+const client = CreateClient();
+
+client.once("ready", () => {
+  console.log(`✅ Connected as ${client.user?.tag}`);
 });
 
-// Événement : quand le bot est prêt
-client.once('ready', () => {
-    console.log(`✅ Connecté en tant que ${client.user?.tag}`);
+client.on("messageCreate", async (message) => {
+  if (message.author.bot) return;
+
+  if (message.content.toLowerCase() === "!ping") {
+    await message.reply("🏓 Pong !");
+  }
 });
 
-// Événement : quand un message est envoyé
-client.on('messageCreate', async (message) => {
-    if (message.author.bot) return; // Ignore les messages des bots
-    if (message.content.toLowerCase() === '!ping') {
-        await message.reply('🏓 Pong !');
-    }
-});
-
-// Connexion au bot
-client.login(token);
+client.login(TOKEN);
