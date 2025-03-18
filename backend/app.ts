@@ -1,7 +1,6 @@
 import "dotenv/config";
 const express = require("express");
 const fs = require("fs");
-
 const app = express();
 const port = process.env.BACKEND_PORT;
 const dataFile = "data.json";
@@ -36,5 +35,5 @@ app.post("/data", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Serveur démarré sur http://localhost:${port}`);
+  console.log(`🚀 Serveur démarré sur http://localhost:${port}`);
 });

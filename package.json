@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start-bot": "npx tsx main.ts",
+    "start": "concurrently \"npm run start-bot\" \"npm run start-server\"",
+    "start-server": "npx tsx ./backend/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +23,8 @@
   "dependencies": {
     "@discordjs/rest": "^2.4.3",
     "@nestjs/typeorm": "^11.0.0",
+    "axios": "^1.8.3",
+    "concurrently": "^9.1.2",
     "discord.js": "^14.18.0",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
